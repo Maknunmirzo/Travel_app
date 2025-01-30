@@ -45,6 +45,7 @@ class TravelContent extends StatelessWidget {
               ),
             ),
           ),
+          SizedBox(width: 6,)
         ],
 
       ),

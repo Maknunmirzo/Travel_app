@@ -64,88 +64,91 @@ class MainItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(6),
-      width: 302,
-      height: 529,
-      decoration: BoxDecoration(
-          color: Colors.white,
-          border: Border.all(color: Color(0xff4B4B4B80), width: 1),
-          borderRadius: BorderRadius.all(
-            Radius.circular(15),
-          )),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        spacing: 10,
-        children: [
-          MainItemImage(
-            image: "assets/images/places/makka.png",
-            firstDay: "14 okt",
-            endDay: "27 okt",
-            days: "14 kun",
-          ),
-          TextBack(text: "Umra Safari"),
-          Row(
-            children: [
-              DaysPlaces(place: "Madinada", days: 10),
-              SizedBox(
-                width: 5,
-              ),
-              DaysPlaces(place: "Makkada", days: 5),
-            ],
-          ),
-          TextBack(text: "Sayohat tarkibi"),
-          Row(
-            spacing: 7,
-            children: [
-              TravelContent(part: "Sugurta"),
-              TravelContent(part: "Chipta"),
-              TravelContent(part: "Viza"),
-              ExcessPart(count: 2)
-            ],
-          ),
-          TextBack(text: "Tariflar"),
-          SizedBox(
-          height: 109,
-            child: ListView.separated(
-              // clipBehavior: Clip.antiAliasWithSaveLayer,
-              shrinkWrap: true,
-              separatorBuilder: (context, index) => SizedBox(width: 10),
-              scrollDirection: Axis.horizontal,
-              itemCount: toursData.length,
-              itemBuilder: (context, index) {
-                final tour = toursData[index];
-                return Tours(
-                  status: tour["status"],
-                  price_now: tour["price_now"],
-                  price_last: tour["price_last"],
-                  contents: List<String>.from(tour["contents"]),
-                );
-              },
+    return Center(
+      child: Container(
+        // clipBehavior: Clip.hardEdge,
+        padding: EdgeInsets.all(6),
+        width: 302,
+        height: 565,
+        decoration: BoxDecoration(
+            color: Colors.white,
+            border: Border.all(color: Color(0xff4B4B4B80), width: 1),
+            borderRadius: BorderRadius.all(
+              Radius.circular(15),
+            )),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          spacing: 10,
+          children: [
+            MainItemImage(
+              image: "assets/images/places/makka.png",
+              firstDay: "14 okt",
+              endDay: "27 okt",
+              days: "14 kun",
             ),
-          ),
-          Container(
-            height: 34,
-            width: double.infinity,
-            decoration: BoxDecoration(
-              color: AppColors.MainColor,
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Center(
-              child: Text(
-              "Batafsil..."  ,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
-                    fontFamily: "Urbanist",
-                  fontWeight: FontWeight.w700
+            TextBack(text: "Umra Safari"),
+            Row(
+              children: [
+                DaysPlaces(place: "Madinada", days: 10),
+                SizedBox(
+                  width: 5,
                 ),
-
+                DaysPlaces(place: "Makkada", days: 5),
+              ],
+            ),
+            TextBack(text: "Sayohat tarkibi"),
+            Row(
+              spacing: 7,
+              children: [
+                TravelContent(part: "Sugurtaa"),
+                TravelContent(part: "Chipta"),
+                TravelContent(part: "Viza"),
+                ExcessPart(count: 2)
+              ],
+            ),
+            TextBack(text: "Tariflar"),
+            SizedBox(
+            height: 128,
+              child: ListView.separated(
+                // clipBehavior: Clip.none,
+                shrinkWrap: true,
+                separatorBuilder: (context, index) => SizedBox(width: 10),
+                scrollDirection: Axis.horizontal,
+                itemCount: toursData.length,
+                itemBuilder: (context, index) {
+                  final tour = toursData[index];
+                  return Tours(
+                    status: tour["status"],
+                    price_now: tour["price_now"],
+                    price_last: tour["price_last"],
+                    contents: List<String>.from(tour["contents"]),
+                  );
+                },
               ),
             ),
-          )
+            Container(
+              height: 34,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: AppColors.MainColor,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Center(
+                child: Text(
+                "Batafsil..."  ,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                      fontFamily: "Urbanist",
+                    fontWeight: FontWeight.w700
+                  ),
 
-        ],
+                ),
+              ),
+            )
+
+          ],
+        ),
       ),
     );
   }

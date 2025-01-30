@@ -54,6 +54,7 @@ class DaysPlaces extends StatelessWidget {
                       color: AppColors.MainColor
                   ),
                 ),
+
               ],
             ),
           ),
@@ -68,6 +69,7 @@ class DaysPlaces extends StatelessWidget {
               ),
             ),
           ),
+          SizedBox(width: 4,)
         ],
 
       ),
